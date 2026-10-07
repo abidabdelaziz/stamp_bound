@@ -1,45 +1,30 @@
-# Welcome to your Expo app 👋
+# stamp_bound
+Stampbound is a social travel app built around short, visual lists of up to five places. Each post combines a customizable scrapbook-style collage with an interactive map. People can scroll for inspiration, swipe to see the locations, and save individual places or the entire map.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Development Notes
 
-## Get started
+Node version : 24.21.0
+Npm version : 11.19.0
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+Newer versions of npm (versions 10 and 11) handle peer dependency conflicts with rigid strictness compared to older package managers.
 
-2. Start the app
+The Issue: If you install a third-party community React Native package that hasn't updated its internal version metadata file to explicitly list support for the newest React versions, npm might block the install and throw an ERESOLVE unable to resolve dependency tree error.
 
-   ```bash
-   npx expo start
-   ```
+The Fix: Whenever installing standard packages, use the Expo safety wrapper which automatically matches compatible versions,
+this will help to relay the app build via the secure expo proxy tunnel. 
 
-In the output, you'll find options to open the app in a
+npx expo install name-of-package
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Instead of using npm start, explicitly let the bundler know to spin up a tunnel network interface. 
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+npx expo start --tunnel
 
-## Get a fresh project
+If running on Chrostini Linux use : 
 
-When you're ready, run:
+NODE_OPTIONS="--max-old-space-size=2048" WATCHMAN_FILTER_NODE_MODULES=1 npx expo start --web
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
 
 ## Learn more
 
