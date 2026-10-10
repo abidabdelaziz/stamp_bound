@@ -6,6 +6,16 @@ Stampbound is a social travel app built around short, visual lists of up to five
 Node version : 24.21.0
 Npm version : 11.19.0
 
+## Google Maps setup
+
+The Android map uses `GOOGLE_MAPS_API_KEY` at native build time. Create a `.env.local` file in the project root and set:
+
+```sh
+GOOGLE_MAPS_API_KEY=your-restricted-android-maps-key
+```
+
+The local env file is ignored by Git. For EAS builds, configure the same variable in the EAS environment used by the build. Enable the Maps SDK for Android and restrict the key to the app's Android package name and signing certificate SHA-1. Rebuild the native app after changing the key; iOS uses Apple Maps.
+
 
 Newer versions of npm (versions 10 and 11) handle peer dependency conflicts with rigid strictness compared to older package managers.
 
