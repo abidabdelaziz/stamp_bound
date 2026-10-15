@@ -1,3 +1,11 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
+const localEnvPath = path.join(__dirname, '.env.local');
+if (fs.existsSync(localEnvPath)) {
+  process.loadEnvFile(localEnvPath);
+}
+
 const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 if (!googleMapsApiKey) {
