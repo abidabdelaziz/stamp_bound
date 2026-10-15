@@ -8,7 +8,9 @@ Stampbound is a social travel app built around short, visual lists of up to five
 Run `npm run deploy` to export the web app and publish `dist/` to the `gh-pages`
 branch. The deploy command generates a `.nojekyll` file so GitHub Pages serves
 Expo's `_expo/` JavaScript and media bundles instead of treating `_expo/` as a
-Jekyll directory.
+Jekyll directory. It also force-stages the exported Material Symbols font,
+because the existing `gh-pages` branch `.gitignore` rule for `node_modules/`
+otherwise excludes the font required by web icons.
 
 
 
