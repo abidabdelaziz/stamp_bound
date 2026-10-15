@@ -3,6 +3,13 @@ Stampbound is a social travel app built around short, visual lists of up to five
 
 [Live Demo](https://abidabdelaziz.github.io/stamp_bound/)
 
+## GitHub Pages deployment
+
+Run `npm run deploy` to export the web app and publish `dist/` to the `gh-pages`
+branch. The deploy command generates a `.nojekyll` file so GitHub Pages serves
+Expo's `_expo/` JavaScript and media bundles instead of treating `_expo/` as a
+Jekyll directory.
+
 
 
 # Development Notes
